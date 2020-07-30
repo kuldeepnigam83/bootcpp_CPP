@@ -13,7 +13,7 @@ TEST(VitalsTest, when_a_vital_is_off_limit_it_is_reported_with_vital_id) {
         {respRate, 50},
     };
     auto results = vitalsAreOk(measurements);
-    results.insert(results.begin()+ t->id, vitalResult);
+    
     ASSERT_EQ(results.size(), sizeof(measurements)/sizeof(measurements[0]));
     ASSERT_EQ(results[spo2], false);
     ASSERT_EQ(results[bpm], true);
@@ -27,7 +27,7 @@ TEST(VitalsTest, when_a_spo_is_low_n_resp_high) {
         {respRate, 80},
     };
     auto results = vitalsAreOk(measurements);
-    results.insert(results.begin()+ t->id, vitalResult);
+    
     ASSERT_EQ(results.size(), sizeof(measurements)/sizeof(measurements[0]));
     ASSERT_EQ(results[spo2], false);
     ASSERT_EQ(results[bpm], true);
